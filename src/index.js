@@ -19,24 +19,35 @@ app.on('ready', ()=> {
       width: 450
   });
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, './index.html'),
-    protocol: 'file',
+    pathname: path.join(__dirname, 'index.html'),
+    protocol: 'file:',
     slashes: true
   }))
+  mainWindow.on('closed', function(){
+  // Dereference the window object, usually you would store windows
+  // in an array if your app supports multi windows, this is the time
+  // when you should delete the corresponding element.
+    mainWindow = null
+  })
+  Menu.setApplicationMenu(null);
+  //Menu.setApplicationMenu(mainMenu);
 
-  const mainMenu = Menu.buildFromTemplate(templateMenu);
-  Menu.setApplicationMenu(mainMenu);
 
-});
+})
 
-const templateMenu = [{
-    label: 'Info',
-    submenu: [{
-        label: 'About',
-        accelerator: 'F1',
-        click() {
-            alert('About')
-        }
-    }]
-}]
+app.on('window-all-closed', ()=>{
+    if(process.platform !== 'darwin'){
+        app.quit()
+    }
+})
+
+app.on('activate', ()=> {
+    if(mainWindow === null) {
+        createWindow()
+    }
+})
+
+
+
+
 

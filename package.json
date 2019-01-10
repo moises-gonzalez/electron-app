@@ -13,6 +13,8 @@
   "dependencies": {
     "electron": "^4.0.1",
     "electron-reload": "^1.4.0"
+  },
+  "devDependencies": {
+    "menubar": "^5.2.3"
   }
-
 }
