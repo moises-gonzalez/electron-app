@@ -6,7 +6,6 @@ const path = require('path');
 
 let mainWindow
 
-
 if(process.env.NODE_ENV !== 'production'){
     require('electron-reload')(__dirname, {
         electron: path.join(__dirname, '../node_modules', '.bin', 'electron')
@@ -14,6 +13,7 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 app.on('ready', ()=> {
+
   mainWindow = new BrowserWindow({
       title: 'Nioscent Weather App',
       width: 450
@@ -30,13 +30,13 @@ app.on('ready', ()=> {
 });
 
 const templateMenu = [{
-        label: 'Info',
-        submenu: [{
-            label: 'About',
-            accelerator: 'F1',
-            click() {
-                alert('About')
-            }
-        }]
+    label: 'Info',
+    submenu: [{
+        label: 'About',
+        accelerator: 'F1',
+        click() {
+            alert('About')
+        }
     }]
+}]
 
