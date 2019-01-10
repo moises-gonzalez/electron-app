@@ -13,9 +13,6 @@
   "dependencies": {
     "electron": "^4.0.1",
     "electron-reload": "^1.4.0"
-  },
-  "devDependencies": {
-    "css-loader": "^2.1.0",
-    "style-loader": "^0.23.1"
   }
+
 }
